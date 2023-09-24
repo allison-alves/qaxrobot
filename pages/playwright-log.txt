@@ -1,0 +1,25 @@
+{"level":30,"time":"2023-09-18T20:51:40.430Z","pid":17208,"hostname":"Allison","msg":"Listening on 49573"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\index.js:9385:15)
+    at PlaywrightServer.getActiveBrowser (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\index.js:9898:59)
+    at PlaywrightServer.setTimeout (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\index.js:10144:57)
+    at C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:821:17
+    at Http2ServerCallStream.safeDeserializeMessage (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-call.js:394:13)
+    at ServerHttp2Stream.onEnd (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-call.js:381:22)
+    at ServerHttp2Stream.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1359:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+=============================================================
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\index.js:9385:15)
+    at PlaywrightServer.getActiveBrowser (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\index.js:9898:59)
+    at PlaywrightServer.setTimeout (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\index.js:10144:57)
+    at C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:821:17
+    at Http2ServerCallStream.safeDeserializeMessage (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-call.js:394:13)
+    at ServerHttp2Stream.onEnd (C:\Users\oxto_\AppData\Local\Programs\Python\Python311\Lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server-call.js:381:22)
+    at ServerHttp2Stream.emit (node:events:526:35)
+    at endReadableNT (node:internal/streams/readable:1359:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+=============================================================

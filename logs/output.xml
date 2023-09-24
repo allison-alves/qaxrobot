@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20230923 22:05:57.810" rpa="false" schemaversion="4">
+<suite id="s1" name="Tests" source="C:\QAx\projects\mark85-qax\tests">
+<suite id="s1-s1" name="Login" source="C:\QAx\projects\mark85-qax\tests\login.robot">
+<test id="s1-s1-t1" name="Deve poder logar com um usuáro pré-cadastrado" line="11">
+<kw name="Start Session" library="config" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>browser=chromium</arg>
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230923 22:05:58.654" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "ignoreDefaultArgs": false, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\QAx\\projects\\mark85-qax\\logs\\browser\\traces\\e9daee29-39ea-481f-8492-f7216e63840c"}</msg>
+<msg timestamp="20230923 22:05:58.923" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"ignoreDefaultArgs":false,"slowMo":0,"timeout":30000,"tracesDir":"C:\\QAx\\projects\\mark85-qax\\logs\\browser\\traces\\e9daee29-39ea-481f-8492-f7216e63840c"}</msg>
+<status status="PASS" starttime="20230923 22:05:58.654" endtime="20230923 22:05:58.924"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230923 22:05:59.735" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg timestamp="20230923 22:05:59.735" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230923 22:05:58.924" endtime="20230923 22:05:59.735"/>
+</kw>
+<status status="PASS" starttime="20230923 22:05:58.653" endtime="20230923 22:05:59.735"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${user}</var>
+<arg>name=Fernando Papito</arg>
+<arg>email=papito@msn.com</arg>
+<arg>password=123456</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230923 22:05:59.735" level="INFO">${user} = {'name': 'Fernando Papito', 'email': 'papito@msn.com', 'password': '123456'}</msg>
+<status status="PASS" starttime="20230923 22:05:59.735" endtime="20230923 22:05:59.735"/>
+</kw>
+<kw name="Submit login form" library="LoginPage">
+<arg>${user}</arg>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[placeholder$=mail]</arg>
+<arg>${user}[email]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230923 22:05:59.737" level="INFO">Fills the text 'papito@msn.com' in the given field.</msg>
+<status status="PASS" starttime="20230923 22:05:59.737" endtime="20230923 22:05:59.772"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>css=input[placeholder=Senha]</arg>
+<arg>${user}[password]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230923 22:05:59.772" level="INFO">Fills the text '123456' in the given field.</msg>
+<status status="PASS" starttime="20230923 22:05:59.772" endtime="20230923 22:05:59.785"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Entrar</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230923 22:05:59.785" endtime="20230923 22:05:59.835"/>
+</kw>
+<status status="PASS" starttime="20230923 22:05:59.737" endtime="20230923 22:05:59.835"/>
+</kw>
+<kw name="User should be logged" library="LoginPage">
+<arg>${user}[name]</arg>
+<kw name="Split String" library="String">
+<var>@{splited_name}</var>
+<arg>${name}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230923 22:05:59.837" level="INFO">@{splited_name} = [ Fernando | Papito ]</msg>
+<status status="PASS" starttime="20230923 22:05:59.837" endtime="20230923 22:05:59.837"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${element_header}</var>
+<arg>css=header .right small</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230923 22:05:59.837" level="INFO">${element_header} = css=header .right small</msg>
+<status status="PASS" starttime="20230923 22:05:59.837" endtime="20230923 22:05:59.837"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>${element_header}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230923 22:05:59.931" level="INFO">Waited for Element with selector css=header .right small at state visible</msg>
+<status status="PASS" starttime="20230923 22:05:59.838" endtime="20230923 22:05:59.931"/>
+</kw>
+<kw name="Get Text" library="Browser">
+<arg>${element_header}</arg>
+<arg>equal</arg>
+<arg>Olá, ${splited_name}[0]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20230923 22:05:59.952" level="INFO">Text: 'Olá, Fernando'</msg>
+<status status="PASS" starttime="20230923 22:05:59.932" endtime="20230923 22:05:59.952"/>
+</kw>
+<status status="PASS" starttime="20230923 22:05:59.835" endtime="20230923 22:05:59.952"/>
+</kw>
+<kw name="Take Screenshot" library="Browser" type="TEARDOWN">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230923 22:06:00.185" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230923 22:05:59.952" endtime="20230923 22:06:00.185"/>
+</kw>
+<tag>user_login</tag>
+<status status="PASS" starttime="20230923 22:05:58.651" endtime="20230923 22:06:00.185"/>
+</test>
+<doc>Cenários de testes do cadastro de usuários</doc>
+<status status="PASS" starttime="20230923 22:05:57.826" endtime="20230923 22:06:00.228"/>
+</suite>
+<status status="PASS" starttime="20230923 22:05:57.811" endtime="20230923 22:06:00.232"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">user_login</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Login">Tests.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

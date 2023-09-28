@@ -7,7 +7,7 @@ Library    String
 
 Resource    ../resources/env.resource
 
- 
+*** Keywords *** 
 Submit login form
     [Arguments]    ${user}
 
